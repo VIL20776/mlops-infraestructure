@@ -11,6 +11,8 @@ aws ecr get-login-password --region ${aws_region} | docker login --username AWS 
 docker pull ${ecr_repository}:latest
 docker run -d \
     -e AWS_REGION=${aws_region} \
+    -e S3_MODEL_BUCKET=${s3_bucket} \
+    -e SQS_QUEUE_URL=${sqs_queue_url} \
     -v ${releases_dir}:/app/models \
     ${ecr_repository}:latest python3 worker.py
 docker run -d \

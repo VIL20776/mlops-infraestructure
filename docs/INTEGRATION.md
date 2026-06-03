@@ -21,7 +21,10 @@ Los caracteres en minúscula, números y el simbolo '-' son válidos para el nom
 El nombre puede ser cualquiera, pero se recomienda seguir la siguiente estructura para facilitar la identificación de los proyectos: `<Usuario>-<Libreria ML>-<Nombre del repositorio>`.
 
 Para guardar el archivo terraform.tfvars. Ejecute el commando `./scripts/backup_config.sh` desde el direcotrio raíz del repositorio o suba de forma manual el archivo `terraform.tfvars` a la Bucket S3 definida para el backend de terraform.
+
 Finalmente, ejecute el workflow **Deploy and Update Infraestructure** para hacer efectivos sus cambios.
+
+Recuerde proveer a los usuarios de la IaC el id del proyecto, la url de mlflow, el nombre de la función lambda y el nombre del rol para github actions. Estos los podrá ver en el paso "Apply Terraform" del workflows **Deploy and Update Infraestrucutre**.
 
 ## Integración a MLFlow
 Antes de que el usuario investigador pueda usar la infraestructura, es necesario registrar el proyecto como un experimento en MLFlow.

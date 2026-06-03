@@ -1,6 +1,7 @@
 import boto3
+import os
 from pathlib import Path
-from config import BASE_DIR, S3_BUCKET
+from config import BASE_DIR
 
 s3 = boto3.client("s3")
 
@@ -12,7 +13,7 @@ def download_file(key: str):
     local_path = BASE_DIR / key
     ensure_parent(local_path)
 
-    s3.download_file(S3_BUCKET, key, str(local_path))
+    s3.download_file(os.getenv("S3_MODEL_BUCKET"), key, str(local_path))
 
 
 def delete_file(key: str):

@@ -152,9 +152,9 @@ Para poder ejecutar los workflows se necesita definir los siguientes secretos en
 ### Workflows
 En la pestaña de Actions verá los workflows definidos para manejar la infraestructura.
 
-+ **Deploy Bare Infraestrucutre:** Este workflow genera la infraestructura inicial en AWS sin usuarios/proyectos integrados y sin el servidor de despliegue. Ejecute este workflow para levantar por primera vez la infraestructura.
++ **Deploy Bare Infraestrucutre:** Este workflow genera la infraestructura inicial en AWS sin usuarios/proyectos integrados y sin el servidor de despliegue. Ejecute este workflow para levantar por primera vez la infraestructura. Despliegue el output del paso "Apply Terraform" para obtener la URL del servidor de MLFLow y el nombre de a función lambda.
 
-+ **Build and Deploy Server Image:** Este workflow crea la imagen Docker del servidor de despliegue definido en la carpeta server. Ejecute este workflow después de levantar la infraestructura por primera vez y cuando actualice el código del servidor.
++ **Build and Deploy Server Image:** Este workflow crea la imagen Docker del servidor de despliegue definido en la carpeta server. Ejecute este workflow después de levantar la infraestructura por primera vez y cuando actualice el código del servidor. Despliegue el output del paso "Apply Terraform" para obtener la URL de los servidores MLFloy y de despliegue, los roles de usuarios, ids de los proyectos y la función lambda de entrenamiento.
 
 + **Deploy and Update Infrestructure:** Este workflow actualiza la infraestructura e integra a los usuarios de la misma. Ejecute este workflow siempre que quiera realizar cambios a los archivo de terraform y al actualiza el archivo terraform.tfvars. <br>
 Vea el documento de [integración de usuarios](INTEGRATION.md) para más detalles.

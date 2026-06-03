@@ -62,6 +62,7 @@ resource "aws_instance" "deployment_server" {
     aws_region     = data.aws_region.current.region
     ecr_repository = aws_ecr_repository.deployment_repo.repository_url
     s3_bucket      = aws_s3_bucket.model_storage.bucket
+    sqs_queue_url  = aws_sqs_queue.pull_release_queue.url
     releases_dir   = "/var/local/models"
   })
   user_data_replace_on_change = true
